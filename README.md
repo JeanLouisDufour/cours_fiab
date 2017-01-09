@@ -1,4 +1,4 @@
-Draft V0
+Draft V1
 
 Intro to reliability
 ============
@@ -14,12 +14,3 @@ Intro to reliability
 TBC
  
 -- JL
-
-
-
-
-
-
-
-
-
