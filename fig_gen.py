@@ -6,7 +6,7 @@ from math import log, pow
 
 # from scipy.stats import gompertz
 
-write_figs = False
+write_figs = True
 
 def read_csv(fn, sep = ';', ndim=2):
 	""
@@ -26,8 +26,16 @@ def gompertz(lambda0, T2, ny = 100):
 		Lambda[i] = f*Lambda[i-1]
 	return Lambda
 
-graunt = read_csv('table_graunt.csv')
-print(graunt)
+#graunt = read_csv('table_graunt.csv')
+#print(graunt)
+gr = np.loadtxt('table_graunt.csv', delimiter=';')
+plt.plot(gr[:,0],gr[:,1],'b^-')
+plt.xlabel('age')
+plt.ylabel('survivants')
+if write_figs:
+	plt.savefig('figures/fig_graunt.png') ## ne pas faire show() avant [sinon vide]
+
+assert False, 'done'
 
 ulpian = read_csv('table_ulpian.csv')
 print(ulpian)
@@ -39,7 +47,7 @@ plt.plot(x, y_cus, color='blue' , label='customary')
 plt.legend(loc='upper right') # obligatoire, et provoque l'affichage
 #plt.show()
 if write_figs:
-	plt.savefig('fig_ulpian.png') ## ne pas faire show() avant [sinon videè]
+	plt.savefig('fig_ulpian.png') ## ne pas faire show() avant [sinon vide]
 
 plt.figure()
 halley = read_csv('table_halley.csv', ndim=1)
